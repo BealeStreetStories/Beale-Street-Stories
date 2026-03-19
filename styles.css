@@ -38,7 +38,7 @@ html{ scroll-behavior:smooth; }
 body{
   background:
     linear-gradient(rgba(7,11,22,.55), rgba(7,11,22,.65)),
-    url("/assets/ca-bg.jpg");
+    url("/PCRP/assets/ca-bg.jpg");
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
