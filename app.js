@@ -7,7 +7,7 @@
     name: "Project California RP",
     emoji: "🌴🌊🏖️",
     tagline: "California Based • Semi-serious RP",
-    discordUrl: "",   // Add your Discord URL here
+    discordUrl: "https://discord.gg/vRTB8gq3WN",   // Add your Discord URL here
     connectUrl: "",   // Add your FiveM connect URL here
     tebexUrl: ""      // Add your Tebex URL here
   };
