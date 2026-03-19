@@ -1,34 +1,41 @@
 /* Import Pacifico font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-/* Brand colors */
-:root{
-  --orange:#F7530C;
-  --green:#0CF73B;
-  --blue:#0C43F7;
-  --gold:#F7B10C;
+/* ============================================
+   BEACH / CALIFORNIA COLOR PALETTE
+   Inspired by the Project California RP logo
+   ============================================ */
+:root {
+  /* Core palette */
+  --ocean:    #1AB8D4;   /* teal ocean wave */
+  --navy:     #1A3A6B;   /* deep navy border */
+  --sun:      #F5C842;   /* golden sun / logo text */
+  --sand:     #E8C87A;   /* warm sandy beach */
+  --sky:      #5BB8F5;   /* bright sky blue */
+  --foam:     #D6F4FA;   /* wave foam / light text */
 
-  --bg:#070B16;
-  --surface:rgba(12,67,247,.10);
-  --surface2:rgba(12,67,247,.16);
-  --text:#EAF0FF;
-  --muted:rgba(234,240,255,.72);
-  --muted2:rgba(234,240,255,.58);
-  --border:rgba(234,240,255,.10);
+  /* UI surfaces */
+  --bg:       #0B1E3A;   /* deep navy background */
+  --surface:  rgba(26,56,107,.18);
+  --surface2: rgba(26,184,212,.14);
+  --text:     #EEF7FF;
+  --muted:    rgba(238,247,255,.72);
+  --muted2:   rgba(238,247,255,.55);
+  --border:   rgba(238,247,255,.10);
 
-  --radius:12px;
-  --shadow:0 10px 28px rgba(0,0,0,.45);
-  --shadowSoft:0 8px 16px rgba(0,0,0,.35);
+  /* Accents */
+  --borderGold:  rgba(245,200,66,.35);
+  --borderOcean: rgba(26,184,212,.40);
+  --ringOcean:   rgba(26,184,212,.20);
+  --ringSun:     rgba(245,200,66,.18);
 
-  --trans:180ms ease;
+  --radius: 12px;
+  --shadow: 0 10px 28px rgba(0,0,0,.45);
+  --shadowSoft: 0 8px 16px rgba(0,0,0,.35);
+  --trans: 180ms ease;
 
   --scriptFont: 'Pacifico', cursive;
   --siteFont: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-
-  --borderGold:rgba(247,177,12,.30);
-  --borderBlue:rgba(12,67,247,.35);
-  --ringOrange:rgba(247,83,12,.18);
-  --ringGold:rgba(247,177,12,.16);
 }
 
 /* Base */
@@ -37,7 +44,7 @@ html{ scroll-behavior:smooth; }
 
 body{
   background:
-    linear-gradient(rgba(7,11,22,.55), rgba(7,11,22,.65)),
+    linear-gradient(rgba(11,30,58,.52), rgba(11,30,58,.62)),
     url("/PCRP/assets/ca-bg.jpg");
   background-size:cover;
   background-position:center;
@@ -48,20 +55,20 @@ body{
   overflow-x:hidden;
 }
 
-/* Fallback gradient when no background image is present */
+/* Fallback gradient when no image */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   z-index:-1;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(247,83,12,.18) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 20%, rgba(247,177,12,.14) 0%, transparent 50%),
-    radial-gradient(ellipse at 60% 80%, rgba(12,67,247,.12) 0%, transparent 50%),
-    linear-gradient(160deg, #070B16 0%, #0B1224 50%, #070B16 100%);
+    radial-gradient(ellipse at 20% 80%, rgba(26,184,212,.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(245,200,66,.16) 0%, transparent 50%),
+    radial-gradient(ellipse at 55% 55%, rgba(26,56,107,.30) 0%, transparent 55%),
+    linear-gradient(160deg, #0B1E3A 0%, #0D2B50 50%, #0B1E3A 100%);
 }
 
-/* Apply site font globally */
+/* Font globally */
 body,
 h1,h2,h3,
 .nav, .nav a, .nav p,
@@ -71,25 +78,24 @@ summary, details, p, li, a{
   font-family: var(--siteFont) !important;
 }
 
-/* ---------- Header ---------- */
+/* ========== GLOBAL HEADER ========== */
 .globalHeader{
   position:sticky;
   top:0;
   z-index:50;
-  background: rgba(255,255,255,0.06) !important;
-  border: 1px solid rgba(255,255,255,0.16) !important;
-  backdrop-filter: blur(14px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(120%) !important;
-  box-shadow: 0 18px 40px rgba(0,0,0,.35) !important;
-  border-bottom:1px solid var(--borderGold) !important;
+  background: rgba(11,30,58,0.75) !important;
+  border-bottom: 2px solid var(--sun) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,.40) !important;
 }
 
 .globalHeader::after{
   content:"";
   display:block;
   height:3px;
-  background:linear-gradient(90deg, var(--blue), var(--gold), var(--orange)) !important;
-  opacity:.75 !important;
+  background:linear-gradient(90deg, var(--navy), var(--ocean), var(--sun), var(--ocean), var(--navy)) !important;
+  opacity:.90 !important;
 }
 
 .headerInner{
@@ -103,9 +109,10 @@ summary, details, p, li, a{
 .headerTitle{
   font-family: var(--scriptFont) !important;
   font-weight:normal !important;
-  font-size:17px !important;
-  letter-spacing:0.1px !important;
-  color:var(--text);
+  font-size:18px !important;
+  letter-spacing:0.2px !important;
+  color: var(--sun) !important;
+  text-shadow: 0 2px 8px rgba(245,200,66,.30);
 }
 
 .headerSub{
@@ -126,20 +133,22 @@ summary, details, p, li, a{
   font-family: var(--scriptFont) !important;
   font-weight:normal !important;
   text-decoration:none;
-  color:var(--text);
+  color: var(--sun);
   border:1px solid var(--borderGold) !important;
-  background:var(--surface) !important;
-  padding:8px 10px;
+  background: rgba(26,56,107,.35) !important;
+  padding:8px 14px;
   border-radius:var(--radius);
   transition:transform var(--trans), box-shadow var(--trans), border-color var(--trans), background var(--trans);
 }
 .headerBtn:hover{
   transform:translateY(-2px);
-  border-color:rgba(247,83,12,.45) !important;
-  box-shadow:0 0 0 6px var(--ringOrange), 0 10px 18px rgba(0,0,0,.30) !important;
+  border-color: var(--ocean) !important;
+  background: rgba(26,184,212,.20) !important;
+  box-shadow:0 0 0 5px var(--ringOcean), 0 8px 16px rgba(0,0,0,.25) !important;
+  color: var(--foam) !important;
 }
 
-/* ---------- Layout ---------- */
+/* ========== LAYOUT ========== */
 .shell{
   display:flex;
   min-height:calc(100vh - 0px);
@@ -152,12 +161,11 @@ summary, details, p, li, a{
   top:72px;
   height:calc(100vh - 72px);
   overflow:auto;
-  background: rgba(255,255,255,0.06) !important;
-  border: 1px solid rgba(255,255,255,0.16) !important;
-  backdrop-filter: blur(14px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(120%) !important;
-  border-right: 1px solid rgba(255,255,255,0.18) !important;
-  box-shadow: 0 10px 24px rgba(0,0,0,.35) !important;
+  background: rgba(11,30,58,0.72) !important;
+  border-right: 1px solid rgba(26,184,212,.25) !important;
+  backdrop-filter: blur(16px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(120%) !important;
+  box-shadow: 4px 0 18px rgba(0,0,0,.30) !important;
   padding:16px;
 }
 
@@ -166,8 +174,8 @@ summary, details, p, li, a{
   display:block;
   height:3px;
   margin:-16px -16px 14px;
-  background:linear-gradient(90deg, var(--gold), var(--orange)) !important;
-  opacity:.80;
+  background:linear-gradient(90deg, var(--sun), var(--ocean)) !important;
+  opacity:.90;
 }
 
 /* Brand */
@@ -175,8 +183,9 @@ summary, details, p, li, a{
   font-family: var(--scriptFont) !important;
   font-weight:normal !important;
   letter-spacing:.2px;
-  color:var(--text);
+  color: var(--sun) !important;
   margin-bottom:14px;
+  text-shadow: 0 2px 8px rgba(245,200,66,.25);
 }
 
 /* Search input */
@@ -186,18 +195,19 @@ summary, details, p, li, a{
   width:100%;
   padding:10px 12px;
   border-radius:var(--radius);
-  border:1px solid var(--borderGold) !important;
-  background:var(--surface) !important;
+  border:1px solid var(--borderOcean) !important;
+  background: rgba(26,56,107,.30) !important;
   color:var(--text);
   outline:none;
   transition:border-color var(--trans), box-shadow var(--trans), background var(--trans);
 }
 .search input::placeholder{
-  color:rgba(234,240,255,.55);
+  color:rgba(238,247,255,.45);
 }
 .search input:focus{
-  border-color:var(--borderBlue) !important;
-  box-shadow:0 0 0 4px rgba(12,67,247,.20) !important;
+  border-color: var(--ocean) !important;
+  box-shadow:0 0 0 4px var(--ringOcean) !important;
+  background: rgba(26,56,107,.45) !important;
 }
 
 /* Nav */
@@ -211,19 +221,19 @@ summary, details, p, li, a{
   font-weight:normal !important;
   margin:16px 10px 6px !important;
   font-size:16px !important;
-  color:rgba(247,177,12,.70) !important;
-  letter-spacing:.1em !important;
+  color: var(--sun) !important;
+  letter-spacing:.08em !important;
   padding-bottom: 8px;
-  border-bottom: 2px solid rgba(247,177,12,.60);
+  border-bottom: 2px solid rgba(245,200,66,.50);
   margin-bottom: 10px;
 }
 
 .nav a{
   display:block;
-  padding:10px 10px 10px 12px;
+  padding:10px 10px 10px 14px;
   margin:0 4px 6px;
   border-radius:var(--radius);
-  color:rgba(234,240,255,.78);
+  color: rgba(238,247,255,.80);
   text-decoration:none;
   position:relative;
   transition:transform var(--trans), box-shadow var(--trans), color var(--trans), background var(--trans), border-color var(--trans);
@@ -231,16 +241,16 @@ summary, details, p, li, a{
 
 .nav a:hover{
   transform:translateX(4px);
-  background:rgba(12,67,247,.16) !important;
-  box-shadow:0 0 0 6px rgba(12,67,247,.14) !important;
-  color:var(--text) !important;
+  background: rgba(26,184,212,.18) !important;
+  box-shadow:0 0 0 5px rgba(26,184,212,.12) !important;
+  color: var(--foam) !important;
 }
 
 .nav a.active{
-  background:rgba(247,177,12,.10) !important;
-  color:var(--text) !important;
-  font-weight:850;
-  box-shadow:0 0 0 6px rgba(247,177,12,.14) !important;
+  background: rgba(245,200,66,.12) !important;
+  color: var(--sun) !important;
+  font-weight:700;
+  box-shadow:0 0 0 5px rgba(245,200,66,.10) !important;
 }
 .nav a.active::before{
   content:"";
@@ -250,21 +260,21 @@ summary, details, p, li, a{
   bottom:10px;
   width:4px;
   border-radius:6px;
-  background:var(--orange);
-  box-shadow:0 0 14px rgba(247,83,12,.22);
+  background: var(--ocean);
+  box-shadow:0 0 12px rgba(26,184,212,.45);
 }
 
-/* ---------- Main content area ---------- */
+/* ========== MAIN CONTENT ========== */
 .main{
   flex:1 1 auto;
   min-width:0;
   padding:32px 36px;
-  background: rgba(255,255,255, 0.06) !important;
-  border: 1px solid rgba(255,255,255, 0.18) !important;
+  background: rgba(11,30,58,0.60) !important;
+  border: 1px solid rgba(26,184,212,.20) !important;
   border-radius: var(--radius);
   box-shadow: 0 26px 60px rgba(0,0,0,.40) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
 }
 
 .main > *{
@@ -275,9 +285,9 @@ summary, details, p, li, a{
 #menuBtn{
   display:none !important;
   border:none;
-  background:var(--surface) !important;
+  background: rgba(26,56,107,.40) !important;
   border:1px solid var(--borderGold) !important;
-  color:var(--text);
+  color:var(--sun);
   border-radius:var(--radius);
   padding:10px 12px;
   font-weight:900;
@@ -286,25 +296,24 @@ summary, details, p, li, a{
 }
 #menuBtn:hover{
   transform:translateY(-2px);
-  box-shadow:0 10px 18px rgba(247,83,12,.14);
-  border-color:rgba(247,83,12,.30);
+  box-shadow:0 8px 16px rgba(26,184,212,.20);
+  border-color: var(--ocean);
 }
 
-/* Typography */
+/* ========== TYPOGRAPHY ========== */
 h1{
-  color: rgba(234,240,255,.98) !important;
+  color: var(--sun) !important;
   font-weight:900;
   margin:0 0 16px;
   letter-spacing:.2px;
   text-shadow:
-    0 2px 6px rgba(0,0,0,.45),
-    0 6px 22px rgba(247,83,12,.22),
-    0 10px 34px rgba(247,177,12,.20),
-    0 0 18px rgba(247,83,12,.10);
+    0 2px 6px rgba(0,0,0,.50),
+    0 6px 22px rgba(26,184,212,.25),
+    0 0 18px rgba(245,200,66,.20);
 }
 h2{
-  color: rgba(234,240,255,.96) !important;
-  font-weight:850;
+  color: var(--foam) !important;
+  font-weight:800;
   margin:22px 0 10px;
   position:relative;
   padding-bottom:8px;
@@ -316,46 +325,46 @@ h2::after{
   bottom:0;
   width:84px;
   height:3px;
-  background:var(--orange);
+  background: linear-gradient(90deg, var(--ocean), var(--sun));
   border-radius:999px;
 }
 h3{
-  color: rgba(234,240,255,.96) !important;
-  font-weight:800;
+  color: var(--sky) !important;
+  font-weight:700;
   margin:16px 0 8px;
 }
 
 p, li{
   font-size:16.5px;
   line-height:1.65;
-  color: rgba(234,240,255,.95) !important;
+  color: rgba(238,247,255,.92) !important;
 }
 
 a{
-  color: rgba(234,240,255,.96) !important;
+  color: var(--sky) !important;
 }
 a:hover{
-  color: var(--gold) !important;
+  color: var(--sun) !important;
 }
 
 /* Details dropdowns */
 details{
-  background: rgba(255,255,255,0.06) !important;
-  border:1px solid rgba(247,177,12,.24) !important;
+  background: rgba(11,30,58,.55) !important;
+  border:1px solid rgba(26,184,212,.28) !important;
   border-radius:var(--radius);
-  box-shadow: 0 14px 30px rgba(0,0,0,.28) !important;
-  backdrop-filter: blur(14px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(120%) !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28) !important;
+  backdrop-filter: blur(12px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
   padding:12px 14px;
   margin:12px 0;
 }
 summary{
   cursor:pointer;
-  font-weight:850;
-  color:var(--text);
+  font-weight:700;
+  color: var(--foam);
 }
 details[open]{
-  border-color:rgba(247,83,12,.35) !important;
+  border-color: rgba(245,200,66,.40) !important;
 }
 
 /* Code blocks */
@@ -363,15 +372,15 @@ pre, code{
   font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 }
 pre{
-  background:#050914;
-  color:#EAF0FF;
+  background:#060F1E;
+  color:#EEF7FF;
   padding:14px 16px;
   border-radius:var(--radius);
   overflow:auto;
-  border:1px solid rgba(247,177,12,.22) !important;
+  border:1px solid rgba(26,184,212,.25) !important;
 }
 code{
-  background:rgba(12,67,247,.10);
+  background: rgba(26,184,212,.12);
   padding:.15em .35em;
   border-radius:8px;
 }
@@ -381,32 +390,33 @@ table{
   width:100%;
   border-collapse:separate;
   border-spacing:0;
-  border:1px solid rgba(247,177,12,.28) !important;
+  border:1px solid rgba(26,184,212,.30) !important;
   border-radius:var(--radius);
   overflow:hidden;
-  background:var(--surface);
+  background: rgba(26,56,107,.20);
 }
 th, td{
   text-align:left;
   padding:12px 12px;
-  border-bottom:1px solid rgba(247,177,12,.14) !important;
+  border-bottom:1px solid rgba(26,184,212,.15) !important;
 }
 th{
-  color:var(--text);
+  color: var(--sun);
+  background: rgba(26,56,107,.35);
 }
 tr:nth-child(even) td{
-  background:rgba(12,67,247,.08) !important;
+  background: rgba(26,184,212,.06) !important;
 }
 tr:last-child td{ border-bottom:none; }
 
 /* Search results dropdown */
 .searchResults{
   margin-top:10px;
-  border:1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.06);
-  backdrop-filter: blur(10px);
+  border:1px solid rgba(26,184,212,.30);
+  background: rgba(11,30,58,.88);
+  backdrop-filter: blur(14px);
   border-radius: var(--radius);
-  box-shadow: 0 20px 45px rgba(0,0,0,.45);
+  box-shadow: 0 20px 45px rgba(0,0,0,.50);
   overflow:hidden;
 }
 
@@ -414,18 +424,19 @@ tr:last-child td{ border-bottom:none; }
   display:block;
   padding:10px 12px;
   text-decoration:none;
-  border-top:1px solid rgba(255,255,255,.10);
+  border-top:1px solid rgba(26,184,212,.12);
   color: var(--text);
 }
 
 .searchResultItem:first-child{ border-top:none; }
 
 .searchResultItem:hover{
-  background: rgba(12,67,247,.12);
+  background: rgba(26,184,212,.15);
+  color: var(--sun) !important;
 }
 
 .searchResultTitle{
-  font-weight:850;
+  font-weight:700;
 }
 
 .searchResultMeta{
@@ -434,7 +445,7 @@ tr:last-child td{ border-bottom:none; }
   font-size:14px;
 }
 
-/* ---------- Server Info Card (homepage) ---------- */
+/* ========== SERVER INFO CARD ========== */
 .serverInfoTitle{
   position:relative;
   padding-bottom:10px;
@@ -446,20 +457,20 @@ tr:last-child td{ border-bottom:none; }
   bottom:0;
   width:140px;
   height:2px;
-  background:rgba(247,177,12,.95);
+  background: linear-gradient(90deg, var(--sun), var(--ocean));
   border-radius:999px;
-  opacity:.85;
+  opacity:.90;
 }
 
 .serverInfoCard{
-  background: rgba(255,255,255, 0.035) !important;
-  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  background: rgba(26,56,107,.25) !important;
+  border: 1px solid rgba(26,184,212,.25) !important;
   backdrop-filter: blur(18px) saturate(130%) !important;
   -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
   border-radius: var(--radius);
   padding: 18px 20px !important;
   margin-top: 10px;
-  color: rgba(234,240,255,0.96) !important;
+  color: rgba(238,247,255,0.95) !important;
 }
 
 .serverInfoCard p{
@@ -467,7 +478,7 @@ tr:last-child td{ border-bottom:none; }
   margin: 0 !important;
 }
 
-/* ---------- Responsive ---------- */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 860px){
   .shell{
     display:block;
