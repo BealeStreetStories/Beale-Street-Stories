@@ -4,24 +4,24 @@ const links = [
   {
     group: "Core",
     items: [
-      { href: "/", label: "Home" },
-      { href: "/server-bible/", label: "Server Bible" }
+      { href: "/PCRP/", label: "Home" },
+      { href: "/PCRP/server-bible/", label: "Server Bible" }
     ]
   },
 
   {
     group: "Rules of Engagement",
     items: [
-      { href: "/faction-roe/", label: "Faction ROE" },
-      { href: "/families-roe/", label: "Families ROE" }
+      { href: "/PCRP/faction-roe/", label: "Faction ROE" },
+      { href: "/PCRP/families-roe/", label: "Families ROE" }
     ]
   },
 
   {
     group: "Departments",
     items: [
-      { href: "/leo/", label: "LEO" },
-      { href: "/ems/", label: "EMS" }
+      { href: "/PCRP/leo/", label: "LEO" },
+      { href: "/PCRP/ems/", label: "EMS" }
     ]
   }
 ];
