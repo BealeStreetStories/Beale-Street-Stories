@@ -344,7 +344,6 @@ body.pageLeave{ opacity:0; }
   font-size:16px !important;
   color: var(--sun) !important;
   padding-bottom:8px;
-  border-bottom:2px solid rgba(245,200,66,.50);
 }
 .nav a{
   display:block;
@@ -625,23 +624,23 @@ tr:last-child td{ border-bottom:none; }
 .fish5{ animation: swimR3 50s linear infinite; animation-delay: -8s; }
 .fish6{ animation: swimL3 36s linear infinite; animation-delay: -28s; }
 
-.fishBody{  animation: fishWiggle 0.50s ease-in-out infinite alternate; transform-origin: right center; }
-.fishBody2{ animation: fishWiggle 0.45s ease-in-out infinite alternate; transform-origin: right center; }
-.fishBody3{ animation: fishWiggle 0.60s ease-in-out infinite alternate; transform-origin: right center; }
+.fishBody{  animation: fishWiggle 1.20s ease-in-out infinite alternate; transform-origin: right center; }
+.fishBody2{ animation: fishWiggle 1.10s ease-in-out infinite alternate; transform-origin: right center; }
+.fishBody3{ animation: fishWiggle 1.40s ease-in-out infinite alternate; transform-origin: right center; }
 @keyframes fishWiggle{
   from{ transform: skewY(-3deg); }
   to{   transform: skewY(3deg); }
 }
-.fishTail{  animation: tailFlick 0.50s ease-in-out infinite alternate; transform-origin: right center; }
-.fishTail2{ animation: tailFlick 0.45s ease-in-out infinite alternate; transform-origin: right center; }
+.fishTail{  animation: tailFlick 1.20s ease-in-out infinite alternate; transform-origin: right center; }
+.fishTail2{ animation: tailFlick 1.10s ease-in-out infinite alternate; transform-origin: right center; }
 @keyframes tailFlick{
   from{ transform: rotate(-18deg); }
-  to{   transform: rotate(18deg); }
+  to{ transform: rotate(18deg); }
 }
-.dorsalFin{ animation: dorsalWave 0.8s ease-in-out infinite alternate; transform-origin: bottom center; }
+.dorsalFin{ animation: dorsalWave 1.8s ease-in-out infinite alternate; transform-origin: bottom center; }
 @keyframes dorsalWave{
   from{ transform: skewX(-5deg); }
-  to{   transform: skewX(5deg); }
+  to{ transform: skewX(5deg); }
 }
 
 @keyframes swimR1{ 0%{ transform:translateX(-80px); } 100%{ transform:translateX(1600px); } }
